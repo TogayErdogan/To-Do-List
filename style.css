@@ -28,3 +28,8 @@ body {
 .list-group {
     --bs-list-group-active-border-color: white !important;
 }
+
+.fa-minus-square:hover{
+    color: #bb2d3b;
+}
+

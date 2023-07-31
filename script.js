@@ -11,6 +11,7 @@ window.onload = function() {
 
 
 addButton.addEventListener('click', addTask);
+
 input.addEventListener('keyup', function(e) {
     if (e.key === 'Enter') {
       addTask();
@@ -26,12 +27,12 @@ function addTask() {
                 
         var newListItem = document.createElement('li');
         newListItem.className = 'list-group-item';
-        newListItem.innerHTML = `<i class="far fa-square"></i> ${inputValue} <i class="fas fa-trash"></i>`;
+        newListItem.innerHTML = `<i class="far fa-square"></i> ${inputValue} <i class="fa fa-minus-square"></i>`;
+        
                 
-        list.appendChild(newListItem);
+        list.insertBefore(newListItem, list.firstElementChild);
         input.value = "";
         input.select();
-
         }
 
 
@@ -58,7 +59,7 @@ list.addEventListener('click', (event) => {
      }
 
 
-     if (clickedElement.classList.contains('fa-trash')) {
+     if (clickedElement.classList.contains('fa-minus-square')) {
         clickedElement.parentElement.remove();
      }
 })
