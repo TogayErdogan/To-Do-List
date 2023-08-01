@@ -27,7 +27,7 @@ function addTask() {
                 
         var newListItem = document.createElement('li');
         newListItem.className = 'list-group-item';
-        newListItem.innerHTML = `<i class="far fa-square"></i> ${inputValue} <i class="fa fa-minus-square"></i>`;
+        newListItem.innerHTML = `<i class="far fa-square"></i> ${inputValue}<button class="btn btn-danger btn-sm rounded-0" type="button"><i class="fa fa-trash"></i></button>`;
         
                 
         list.insertBefore(newListItem, list.firstElementChild);
@@ -59,8 +59,10 @@ list.addEventListener('click', (event) => {
      }
 
 
-     if (clickedElement.classList.contains('fa-minus-square')) {
-        clickedElement.parentElement.remove();
+     if (clickedElement.classList.contains('rounded-0')) {
+      clickedElement.parentElement.remove();  
+     } else if(clickedElement.classList.contains('fa-trash')){
+      clickedElement.parentElement.parentElement.remove();
      }
 })
 
